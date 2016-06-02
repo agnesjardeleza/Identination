@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="identination.css">
+
+<!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src= "mapper/mapper.js"></script>
+        <script src= "mapper/maputil.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Raleway' rel='stylesheet' type='text/css'>
+    </head>
+
+<body>
+
+<div ng-app="myApp" ng-controller="personCtrl">
+<div class="col-sm-7 col-md-7 bg-gray">
+    <div class="container-fluid">
+<!--      <div class="row center-block">-->
+<!--        <div class="col-sm-7 col-md-7 bg-gray">-->
+          <h2 class="page-header"><img src="images/LOGO.png" class="img-responsive" usemap="#map_of_ph" alt="img" style="width: 32%"></h2>
+            <div class="row center-block">
+                <div class="col-xs-11">
+<img ng-show="blank" src="images/blank.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="ncr" src="images/NCR.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region1" src="images/1.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region2" src="images/2.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region3" src="images/3.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region4A" src="images/4A.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region4B" src="images/4B.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region5" src="images/5.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region6" src="images/6.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region7" src="images/7.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region8" src="images/8.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region9" src="images/9.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region10" src="images/10.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region11" src="images/11.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region12" src="images/12.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region13" src="images/13.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region14" src="images/14.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+<img ng-show="region15" src="images/15.png" class="center-block img-responsive" usemap="#map_of_ph" alt="img" style="width: 70%">
+
+</div> 
+            <div class="col-xs-1">
+                <button class="btn btn-danger round-button" type="submit"ng-click="onNCRButton()">N</button>
+                <button class="btn btn-default round-button" type="submit"ng-click="on1Button()">1</button>
+                <button class="btn btn-default round-button" type="submit"ng-click="on2Button()">2</button>
+                <button class="btn btn-default round-button" type="submit"ng-click="on3Button()">3</button>
+                <button class="btn btn-default round-button" type="submit"ng-click="on4AButton()">4A</button>
+                <button class="btn btn-default round-button" type="submit"ng-click="on4BButton()">4B</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on5Button()">5</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on6Button()">6</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on7Button()">7</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on8Button()">8</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on9Button()">9</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on10Button()">10</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on11Button()">11</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on12Button()">12</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on13Button()">13</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on14Button()">14</button>
+                <button class="btn btn-default round-button" type="submit" ng-click="on15Button()">15</button>
+                </div>
+<!--
+            <div class="col-sm-2 col-md-2">
+                <button class="btn btn-default round-button" type="submit"></button>
+                <p>1970</p>
+            </div>
+                <div class="col-sm-2 col-md-2">
+                    <button class="btn btn-default round-button" type="submit"></button>
+                    <p>1980</p>
+            </div>
+                <div class="col-sm-2 col-md-2">
+                    <button class="btn btn-default round-button" type="submit"></button>
+                    <p>1990</p>
+            </div>
+                <div class="col-sm-2 col-md-2">
+                    <button class="btn btn-default round-button" type="submit"></button>
+                    <p>2000</p>
+            </div>
+                <div class="col-sm-2 col-md-2">
+                    <button class="btn btn-default round-button" type="submit"></button>
+                    <p>2010</p>
+            </div>
+                <div class="col-sm-2 col-md-2">
+                    <button class="btn btn-default round-button"  type="submit"></button>
+                    <p>present</p>
+            </div>
+-->
+        </div>
+        
+
+          
+<!--        </div>-->
+      
+      
+        
+    </div>
+    </div>
+    
+    <div class="col-sm-5 col-md-5">
+        <div ng-show="ncr"><h2 class="page-header" >
+NCR
+</h2>
+            <div class="row">
+    <img src="images/person.png" class="center-block img-responsive col-xs-12" usemap="#map_of_ph" alt="img" style="width: 50%; float: none; margin-bottom: 20px;">
+    </div>
+        <br />
+        <h4>I am cautious.</h4>
+<h4>I require a close bond with friends backed by social media.</h4>
+<h4>I am career-oriented.</h4></div>
+          
+<div ng-show="region1"><h2 class="page-header" >
+ILOCOS REGION
+</h2></div>
+<div ng-show="region2"><h2 class="page-header" >
+CAGAYAN VALLEY
+</h2></div>
+<div ng-show="region3"><h2 class="page-header" >
+CENTRAL LUZON
+</h2></div>
+<div ng-show="region4A"><h2 class="page-header" >
+CALABARZON
+</h2></div>
+<div ng-show="region4B"><h2 class="page-header" >
+MIMAROPA
+</h2></div>
+<div ng-show="region5"><h2 class="page-header" >
+BICOL REGION
+</h2></div>
+<div ng-show="region6"><h2 class="page-header" >
+WESTERN VISAYAS
+</h2>
+       <div class="row">
+    <img src="images/person.png" class="center-block img-responsive col-xs-12" usemap="#map_of_ph" alt="img" style="width: 50%; float: none; margin-bottom: 20px;">
+    </div> <br /><h4>I am laid-back.</h4><h4>I am thrifty.</h4> <h4>I am laid-back.</h4></div>
+<div ng-show="region7"><h2 class="page-header" >
+CENTRAL VISAYAS
+</h2></div>
+<div ng-show="region8"><h2 class="page-header" >
+EASTERN VISAYAS
+</h2></div>
+<div ng-show="region9"><h2 class="page-header" >
+ZAMBOANGA PENINSULA
+</h2></div>
+<div ng-show="region10"><h2 class="page-header" >
+NORTHERN MINDANAO
+</h2></div>
+<div ng-show="region11"><h2 class="page-header" >
+DAVAO REGION
+</h2>
+    <div class="row">
+    <img src="images/person.png" class="center-block img-responsive col-xs-12" usemap="#map_of_ph" alt="img" style="width: 50%; float: none; margin-bottom: 20px;">
+    </div>
+    <br />
+    <h4>I like durian.</h4>
+    <h4>I am hospitable.</h4>
+    <h4>I am bold.</h4></div>
+<div ng-show="region12"><h2 class="page-header" >
+SOCCSKSARGEN
+</h2></div>
+<div ng-show="region13"><h2 class="page-header" >
+CARAGA
+</h2></div>
+<div ng-show="region14"><h2 class="page-header" >
+CORDILLERA ADMINISTRATIVE REGION
+</h2></div>
+<div ng-show="region15"><h2 class="page-header" >
+AUTONOMOUS REGION IN MUSLIM MINDANAO
+</h2></div>
+
+          <div class="row placeholders">
+            
+          </div>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+<!--
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<button ng-click="onNCRButton()">NCR</button>
+<button ng-click="on1Button()">Region 1</button>
+<button ng-click="on2Button()">Region 2</button>
+<button ng-click="on3Button()">Region 3</button>
+<button ng-click="on4AButton()">Region 4A</button>
+<button ng-click="on4BButton()">Region 4B</button>
+<button ng-click="on5Button()">Region 5</button>
+<button ng-click="on6Button()">Region 6</button>
+<button ng-click="on7Button()">Region 7</button>
+<button ng-click="on8Button()">Region 8</button>
+<button ng-click="on9Button()">Region 9</button>
+<button ng-click="on10Button()">Region 10</button>
+<button ng-click="on11Button()">Region 11</button>
+<button ng-click="on12Button()">Region 12</button>
+<button ng-click="on13Button()">Region 13</button>
+<button ng-click="on14Button()">Region 14</button>
+<button ng-click="on15Button()">Region 15</button>
+
+<p ng-hide="ncr">
+NCR
+</p>
+<p ng-hide="region1">
+REGION 1
+</p>
+<p ng-hide="region2">
+REGION 2
+</p>
+<p ng-hide="region3">
+REGION 3
+</p>
+<p ng-hide="region4A">
+REGION 4A
+</p>
+<p ng-hide="region4B">
+REGION 4B
+</p>
+<p ng-hide="region5">
+REGION 5
+</p>
+<p ng-hide="region6">
+REGION 6
+</p>
+<p ng-hide="region7">
+REGION 7
+</p>
+<p ng-hide="region8">
+REGION 8
+</p>
+<p ng-hide="region9">
+REGION 9
+</p>
+<p ng-hide="region10">
+REGION 10
+</p>
+<p ng-hide="region11">
+REGION 11
+</p>
+<p ng-hide="region12">
+REGION 12
+</p>
+<p ng-hide="region13">
+REGION 13
+</p>
+<p ng-hide="region14">
+REGION 14
+</p>
+<p ng-hide="region15">
+REGION 15
+</p>
+
+</div>
+-->
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+   
+    $scope.blank = true;
+    $scope.ncr = false;
+    $scope.region1 = false;
+    $scope.region2 = false;
+    $scope.region3 = false;
+    $scope.region4A = false;
+    $scope.region4B = false;
+    $scope.region5 = false;
+    $scope.region6 = false;
+    $scope.region7 = false;
+    $scope.region8 = false;
+    $scope.region9 = false;
+    $scope.region10 = false;
+    $scope.region11 = false;
+    $scope.region12 = false;
+    $scope.region13 = false;
+    $scope.region14 = false;
+    $scope.region15 = false;
+
+    $scope.onNCRButton = function() {
+        $scope.blank = false;
+        $scope.ncr = true;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on1Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = true;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on2Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = true;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on3Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = true;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on4AButton = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = true;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on4BButton = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = true;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on5Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = true;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on6Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = true;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on7Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = true;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on8Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = true;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on9Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = true;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on10Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = true;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on11Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = true;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on12Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = true;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on13Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = true;
+        $scope.region14 = false;
+        $scope.region15 = false;
+    }
+$scope.on14Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = true;
+        $scope.region15 = false;
+    }
+$scope.on15Button = function() {
+        $scope.blank = false;
+        $scope.ncr = false;
+        $scope.region1 = false;
+        $scope.region2 = false;
+        $scope.region3 = false;
+        $scope.region4A = false;
+        $scope.region4B = false;
+        $scope.region5 = false;
+        $scope.region6 = false;
+        $scope.region7 = false;
+        $scope.region8 = false;
+        $scope.region9 = false;
+        $scope.region10 = false;
+        $scope.region11 = false;
+        $scope.region12 = false;
+        $scope.region13 = false;
+        $scope.region14 = false;
+        $scope.region15 = true;
+    }
+});
+</script> 
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</div>
+</body>
+</html>
+
+    
